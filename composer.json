@@ -1,0 +1,21 @@
+{
+    "name": "bricksasp/rbac",
+    "description": "bricksasp 权限模块",
+    "keywords": ["yii2", "rbac"],
+    "type": "yii2-extension",
+    "support": {
+        "issues": "https://github.com/bricksasp/rbac/issues",
+        "source": "https://github.com/bricksasp/rbac"
+    },
+    "authors": [
+        {
+            "name": "bricksasp",
+            "email": "649909457@qq.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "bricksasp\\rbac\\": ""
+        }
+    }
+}
