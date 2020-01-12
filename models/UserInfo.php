@@ -53,7 +53,7 @@ class UserInfo extends \bricksasp\base\BaseActiveRecord
     {
         return [
             [['user_id', 'owner_id'], 'required'],
-            [['user_id', 'owner_id', 'birthday', 'age', 'gender', 'last_login_time', 'login_count', 'integration', 'score', 'credit', 'created_at', 'updated_at'], 'integer'],
+            [['user_id', 'owner_id', 'birthday', 'age', 'gender', 'last_login_time', 'login_count', 'created_at', 'updated_at'], 'integer'],
             [['avatar', 'email'], 'string', 'max' => 255],
             [['name', 'nickname'], 'string', 'max' => 32],
             [['last_login_ip', 'last_login_area'], 'string', 'max' => 64],
@@ -79,9 +79,6 @@ class UserInfo extends \bricksasp\base\BaseActiveRecord
             'last_login_time' => 'Last Login Time',
             'last_login_area' => 'Last Login Area',
             'login_count' => 'Login Count',
-            'integration' => 'Integration',
-            'score' => 'Score',
-            'credit' => 'Credit',
             'created_at' => 'Created At',
             'updated_at' => 'Updated At',
         ];

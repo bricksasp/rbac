@@ -4,6 +4,8 @@ namespace bricksasp\rbac\models\form;
 use bricksasp\rbac\components\UserStatus;
 use bricksasp\rbac\models\User;
 use bricksasp\rbac\models\UserInfo;
+use bricksasp\member\models\UserFund;
+use bricksasp\member\models\UserIntegral;
 use Yii;
 use yii\base\Model;
 use yii\helpers\ArrayHelper;
@@ -78,7 +80,14 @@ class Signup extends Model
                 }
                 $userInfo = new UserInfo();
                 $userInfo->load(['user_id'=>$user->id, 'owner_id'=>$this->ownerId, 'email'=>$this->email]);
-                if (!$userInfo->save()) {
+
+                $userFund = new UserFund();
+                $userFund->load(['user_id'=>$user->id, 'owner_id'=>$this->ownerId]);
+                
+                $userIntegral = new UserIntegral();
+                $userIntegral->load(['user_id'=>$user->id, 'owner_id'=>$this->ownerId]);
+                
+                if (!$userInfo->save() || !$userFund->save() || !$userIntegral->save()) {
                     $transaction->rollBack();
                     return null;
                 }

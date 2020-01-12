@@ -371,10 +371,10 @@ class UserController extends BaseController {
      *           default="65e83d23146f1ee056ef2aa622b179dc"
      *         ),
      *         @OA\Property(
-     *           description="是否登录",
+     *           description="返回登录token 1返回",
      *           property="lognin",
      *           type="integer",
-     *           default=null,
+     *           default=2,
      *         ),
      *       )
      *     )
@@ -396,8 +396,8 @@ class UserController extends BaseController {
 
 		if ($model->load($params, '')) {
 			if ($user = $model->signup()) {
-				if (Yii::$app->getRequest()->post('lognin') !== null) {
-					# code...
+				if (Yii::$app->getRequest()->post('lognin') == 1) {
+					return $this->success($user->generateApiToken($user->id));
 				}
 				return $this->success();
 			}
