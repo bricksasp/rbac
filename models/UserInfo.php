@@ -53,10 +53,11 @@ class UserInfo extends \bricksasp\base\BaseActiveRecord
     {
         return [
             [['user_id', 'owner_id'], 'required'],
-            [['user_id', 'owner_id', 'birthday', 'age', 'gender', 'last_login_time', 'login_count', 'created_at', 'updated_at'], 'integer'],
+            [['user_id', 'owner_id', 'birthday', 'age', 'gender', 'last_login_time', 'login_count', 'vip', 'vip_time', 'created_at', 'updated_at'], 'integer'],
             [['avatar', 'email'], 'string', 'max' => 255],
             [['name', 'nickname'], 'string', 'max' => 32],
             [['last_login_ip', 'last_login_area'], 'string', 'max' => 64],
+            [['vip', 'vip_time', 'login_count'], 'default', 'value' => 0]
         ];
     }
 
